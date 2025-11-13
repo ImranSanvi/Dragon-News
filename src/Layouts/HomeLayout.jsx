@@ -9,7 +9,7 @@ const HomeLayout = () => {
             </header>
 
             <main>
-
+                <button className='btn btn-accent'>Click me</button>
             </main>
         </div>
     );
