@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 const Header = () => {
 
     return (
-        <div className='flex flex-col justify-center items-center gap-3 my-[50px] '>
+        <div className='flex flex-col justify-center items-center gap-3 mt-[50px] '>
             <img src={logo} alt="" />
             <p className='font-normal text-[18px] text-accent'>Journalism Without Fear or Favour</p>
             <p className='font-medium text-[20px] text-accent'>{format(new Date(),  "EEEE, MMMM dd ,yyyy")}</p>
