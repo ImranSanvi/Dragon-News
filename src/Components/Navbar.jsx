@@ -4,7 +4,16 @@ import userIcon from "../assets/user.png"
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
-    const {user} = use(AuthContext);
+    const {user, logOut} = use(AuthContext);
+    const handleLogout = () =>{
+        logOut().then( ()=>{
+            alert("Logout successfully!!")
+        })
+        .cath( (error) =>{
+            alert(error);
+        })
+    }
+
     return (
         <div className='flex items-center'>
             <div className='w-1/3 '></div>
@@ -19,7 +28,9 @@ const Navbar = () => {
 
             <div className="login-btn w-1/3 flex gap-2 justify-end">
                 <img className='mix-blend-multiply' src={userIcon} alt="" />
-                <Link to={'/auth/login'} className='bg-primary text-base-200 font-semibold text-[20px] px-5 py-2 rounded-2xl '>Login</Link>
+                {user ? <button onClick={handleLogout} className='bg-primary text-base-200 font-semibold text-[20px] px-5 py-2   rounded-2xl '>LogOut</button> : <Link to={'/auth/login'} className='bg-primary text-base-200 font-semibold text-[20px] px-5 py-2   rounded-2xl '>Login</Link>
+                }
+                
             </div>
         </div>
     );
